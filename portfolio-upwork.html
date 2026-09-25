@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Muhammad Asad — Shopify CRO & Landing Page Developer</title>
+<meta name="description" content="Freelance Shopify landing page developer and direct-response copywriter for DTC brands. Landing pages, PDPs, and checkout funnels built with CRO and A/B testing in mind — on Shopify, Checkout Champ, and Funnelish." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;450;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0B0B0D;
+    --ink-2:#141416;
+    --surface:#1B1B1E;
+    --surface-2:#202024;
+    --line:#2C2C30;
+    --line-soft:#232326;
+    --text:#F5F5F6;
+    --muted:#B7B7BA;
+    --muted-2:#8A8A8E;
+    --gold:#FF6B2C;
+    --gold-soft:#FF9159;
+    --teal:#FF6B2C;
+    --teal-dim:#C6501F;
+    --maxw:1120px;
+    --r:14px;
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--text);
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    font-weight:400;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  /* ambient background */
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    background:
+      radial-gradient(900px 600px at 78% -8%, rgba(242,180,65,0.10), transparent 60%),
+      radial-gradient(800px 700px at 8% 12%, rgba(67,208,199,0.07), transparent 55%);
+    pointer-events:none; z-index:0;
+  }
+  body::after{
+    content:"";
+    position:fixed; inset:0;
+    background-image:linear-gradient(var(--line-soft) 1px, transparent 1px),
+                     linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+    background-size:64px 64px;
+    opacity:.18;
+    mask-image:radial-gradient(circle at 50% 0%, #000 0%, transparent 70%);
+    -webkit-mask-image:radial-gradient(circle at 50% 0%, #000 0%, transparent 70%);
+    pointer-events:none; z-index:0;
+  }
+
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px; position:relative; z-index:1}
+
+  a{color:inherit; text-decoration:none}
+  .mono{font-family:'Space Mono',monospace}
+
+  .eyebrow{
+    font-family:'Space Mono',monospace;
+    font-size:12px; letter-spacing:.22em; text-transform:uppercase;
+    color:var(--teal); display:inline-flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{content:""; width:26px; height:1px; background:var(--teal); opacity:.6}
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky; top:0; z-index:30;
+    backdrop-filter:saturate(140%) blur(10px);
+    background:rgba(10,15,30,.72);
+    border-bottom:1px solid transparent;
+    transition:border-color .3s;
+  }
+  nav.scrolled{border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex; align-items:center; justify-content:space-between; height:64px}
+  .brand{font-family:'Space Grotesk',sans-serif; font-weight:700; letter-spacing:-.01em; font-size:16px}
+  .brand b{color:var(--gold)}
+  .nav-links{display:flex; gap:30px; align-items:center}
+  .nav-links a{font-size:14px; color:var(--muted); transition:color .2s}
+  .nav-links a:hover{color:var(--text)}
+  .nav-cta{
+    font-family:'Space Mono',monospace; font-size:12.5px; letter-spacing:.04em;
+    color:var(--ink)!important; background:var(--gold);
+    padding:10px 18px; border-radius:999px; font-weight:700;
+    transition:transform .2s, box-shadow .2s;
+  }
+  .nav-cta:hover{transform:translateY(-1px); box-shadow:0 8px 22px rgba(255,107,44,.35)}
+  @media(max-width:680px){ .nav-links a:not(.nav-cta){display:none} }
+
+  /* ---------- HERO ---------- */
+  header{padding:96px 0 40px; position:relative}
+  .hero-grid{display:grid; grid-template-columns:1.25fr .75fr; gap:56px; align-items:center}
+  @media(max-width:900px){ .hero-grid{grid-template-columns:1fr; gap:40px} }
+
+  h1{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700; letter-spacing:-.035em; line-height:1.0;
+    font-size:clamp(44px,8vw,82px);
+    margin:22px 0 0;
+  }
+  h1 .accent{
+    color:transparent;
+    background:linear-gradient(102deg,var(--gold) 20%,var(--gold-soft));
+    -webkit-background-clip:text; background-clip:text;
+    position:relative;
+  }
+  .lede{
+    margin-top:24px; font-size:clamp(16px,1.9vw,18.5px); color:var(--muted);
+    max-width:46ch; line-height:1.62;
+  }
+  .lede b{color:var(--text); font-weight:550}
+  .hero-actions{display:flex; gap:14px; margin-top:34px; flex-wrap:wrap}
+  .btn{
+    display:inline-flex; align-items:center; gap:9px;
+    font-family:'Space Mono',monospace; font-size:13.5px; letter-spacing:.02em;
+    padding:13px 24px; border-radius:999px; font-weight:700;
+    transition:transform .2s, box-shadow .2s, border-color .2s, background .2s;
+  }
+  .btn-primary{background:var(--gold); color:#fff}
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 12px 30px rgba(255,107,44,.35)}
+  .btn-ghost{border:1px solid var(--line); color:var(--text)}
+  .btn-ghost:hover{border-color:var(--gold); color:var(--gold); transform:translateY(-2px)}
+  .btn svg{width:16px; height:16px}
+  .btn-primary svg{background:rgba(255,255,255,.18); border-radius:50%; padding:2px}
+
+  /* platforms chip strip in hero side */
+  .hero-card{
+    border:1px solid var(--line); border-radius:var(--r);
+    background:linear-gradient(180deg,var(--surface),var(--ink-2));
+    padding:24px;
+  }
+  .hero-card .k{font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted-2)}
+  .plat{display:flex; flex-direction:column; gap:2px; margin-top:16px}
+  .plat-row{display:flex; align-items:baseline; justify-content:space-between; padding:13px 0; border-bottom:1px solid var(--line-soft)}
+  .plat-row:last-child{border-bottom:0}
+  .plat-row .name{font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:18px}
+  .plat-row .tag{font-family:'Space Mono',monospace; font-size:11.5px; color:var(--teal)}
+
+  /* ---------- STATS ---------- */
+  .stats{
+    display:grid; grid-template-columns:repeat(4,1fr);
+    border:1px solid var(--line); border-radius:var(--r); overflow:hidden;
+    margin-top:64px; background:var(--ink-2);
+  }
+  @media(max-width:680px){ .stats{grid-template-columns:repeat(2,1fr)} }
+  .stat{padding:26px 22px; border-right:1px solid var(--line-soft)}
+  .stat:last-child{border-right:0}
+  @media(max-width:680px){
+    .stat{border-right:1px solid var(--line-soft); border-bottom:1px solid var(--line-soft)}
+    .stat:nth-child(2n){border-right:0}
+    .stat:nth-child(n+3){border-bottom:0}
+  }
+  .stat .num{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:34px; letter-spacing:-.02em; color:var(--gold); line-height:1}
+  .stat .lbl{font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); margin-top:10px}
+
+  /* ---------- SECTION SHELL ---------- */
+  section{padding:92px 0; position:relative}
+  .sec-head{max-width:60ch}
+  .sec-head h2{
+    font-family:'Space Grotesk',sans-serif; font-weight:700; letter-spacing:-.03em;
+    font-size:clamp(28px,4vw,42px); margin:16px 0 0; line-height:1.06;
+  }
+  .sec-head p{color:var(--muted); margin-top:16px; font-size:16.5px; max-width:54ch}
+
+  /* ---------- MONEY PATH (signature) ---------- */
+  .path{
+    margin-top:48px;
+    display:grid; grid-template-columns:repeat(5,1fr); gap:0;
+    border:1px solid var(--line); border-radius:var(--r);
+    background:linear-gradient(180deg,var(--surface),var(--ink-2));
+    position:relative; overflow:hidden;
+  }
+  .path::before{ /* the flowing money line — aligned to the dot row */
+    content:""; position:absolute; left:0; right:0; top:36px; height:2px;
+    background:linear-gradient(90deg,var(--teal-dim),var(--teal) 18%,var(--gold) 55%,var(--gold-soft));
+    transform:scaleX(0); transform-origin:left; opacity:.5;
+    transition:transform 1.4s cubic-bezier(.2,.7,.2,1);
+  }
+  .path.lit::before{transform:scaleX(1)}
+  @media(max-width:760px){
+    .path{grid-template-columns:1fr}
+    .path::before{display:none}
+  }
+  .stage{
+    padding:30px 20px; text-align:center; border-right:1px solid var(--line-soft);
+    position:relative; z-index:1;
+    opacity:0; transform:translateY(12px);
+    transition:opacity .6s ease, transform .6s ease;
+  }
+  .path.lit .stage{opacity:1; transform:none}
+  .stage:nth-child(2){transition-delay:.10s}
+  .stage:nth-child(3){transition-delay:.22s}
+  .stage:nth-child(4){transition-delay:.34s}
+  .stage:nth-child(5){transition-delay:.46s}
+  .stage:last-child{border-right:0}
+  @media(max-width:760px){
+    .stage{border-right:0; border-bottom:1px solid var(--line-soft)}
+    .stage:last-child{border-bottom:0}
+  }
+  .dot{
+    width:13px; height:13px; border-radius:50%; margin:0 auto 16px;
+    background:var(--ink); border:2px solid var(--teal);
+    box-shadow:0 0 0 5px rgba(67,208,199,.10);
+  }
+  .stage.key .dot{border-color:var(--gold); box-shadow:0 0 0 5px rgba(242,180,65,.12)}
+  .stage .st-name{font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:16px}
+  .stage.key .st-name{color:var(--gold-soft)}
+  .stage .st-sub{font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted-2); margin-top:7px}
+  .path-note{
+    font-family:'Space Mono',monospace; font-size:12.5px; color:var(--muted);
+    margin-top:18px; display:flex; align-items:center; gap:10px;
+  }
+  .path-note .pip{width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(242,180,65,.14)}
+
+  /* ---------- WHAT I BUILD ---------- */
+  .build-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:48px}
+  @media(max-width:820px){ .build-grid{grid-template-columns:repeat(2,1fr)} }
+  @media(max-width:520px){ .build-grid{grid-template-columns:1fr} }
+  .build{
+    border:1px solid var(--line); border-radius:var(--r); padding:24px 22px;
+    background:var(--ink-2); transition:border-color .25s, transform .25s, background .25s;
+  }
+  .build:hover{border-color:var(--line); background:var(--surface); transform:translateY(-3px)}
+  .build .ix{font-family:'Space Mono',monospace; font-size:12px; color:var(--gold); letter-spacing:.1em}
+  .build h3{font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:18.5px; margin:14px 0 8px; letter-spacing:-.01em}
+  .build p{color:var(--muted); font-size:14.5px; margin:0; line-height:1.55}
+
+  /* ---------- PROJECTS ---------- */
+  .proj-head{display:flex; align-items:flex-end; justify-content:space-between; gap:24px; flex-wrap:wrap}
+  .proj-count{font-family:'Space Mono',monospace; font-size:12.5px; color:var(--muted); letter-spacing:.08em}
+  .proj-grid{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:40px}
+  @media(max-width:760px){ .proj-grid{grid-template-columns:1fr} }
+  .proj{
+    display:flex; align-items:center; justify-content:space-between; gap:18px;
+    border:1px solid var(--line); border-radius:12px; padding:20px 22px;
+    background:var(--ink-2); position:relative; overflow:hidden;
+    transition:border-color .25s, transform .25s, background .25s;
+  }
+  .proj::before{
+    content:""; position:absolute; left:0; top:0; bottom:0; width:3px;
+    background:var(--gold); transform:scaleY(0); transform-origin:top; transition:transform .28s;
+  }
+  .proj:hover{border-color:var(--line); background:var(--surface); transform:translateX(4px)}
+  .proj:hover::before{transform:scaleY(1)}
+  .proj:focus-visible{outline:2px solid var(--gold); outline-offset:3px}
+  .proj .meta{min-width:0; display:flex; flex-direction:column; gap:9px}
+  .proj .pname{font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:18px; letter-spacing:-.01em}
+  .proj .ptype{
+    font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--gold-soft); border:1px solid var(--teal-dim); border-radius:999px;
+    padding:4px 11px; display:inline-block; width:fit-content;
+  }
+  .proj .arrow{
+    flex:0 0 auto; width:38px; height:38px; border-radius:999px;
+    border:1px solid var(--line); display:grid; place-items:center; color:var(--muted);
+    transition:background .25s, color .25s, border-color .25s, transform .25s;
+  }
+  .proj:hover .arrow{background:var(--gold); color:#fff; border-color:var(--gold); transform:rotate(-45deg)}
+  .proj .arrow svg{width:17px; height:17px}
+
+  /* ---------- CONTACT ---------- */
+  .contact{
+    border:1px solid var(--line); border-radius:20px; padding:clamp(36px,6vw,68px);
+    background:
+      radial-gradient(600px 300px at 80% -20%, rgba(255,107,44,.14), transparent 60%),
+      linear-gradient(180deg,var(--surface),var(--ink-2));
+    text-align:center;
+  }
+  .contact h2{font-family:'Space Grotesk',sans-serif; font-weight:700; letter-spacing:-.03em; font-size:clamp(30px,5vw,52px); margin:18px 0 0; line-height:1.05}
+  .contact p{color:var(--muted); max-width:48ch; margin:18px auto 0; font-size:17px}
+  .contact-actions{display:flex; gap:14px; justify-content:center; margin-top:36px; flex-wrap:wrap}
+
+  /* ---------- FLOATING WHATSAPP ---------- */
+  .float-wa{
+    position:fixed; right:24px; bottom:24px; z-index:40;
+    width:56px; height:56px; border-radius:50%;
+    background:var(--gold); display:grid; place-items:center;
+    box-shadow:0 10px 28px rgba(255,107,44,.45);
+    transition:transform .2s;
+  }
+  .float-wa:hover{transform:scale(1.08)}
+  .float-wa svg{width:26px; height:26px; color:#fff}
+
+  /* ---------- FOOTER ---------- */
+  footer{border-top:1px solid var(--line); padding:34px 0; margin-top:40px}
+  .foot{display:flex; align-items:center; justify-content:space-between; gap:18px; flex-wrap:wrap}
+  .foot .fb{font-family:'Space Grotesk',sans-serif; font-weight:700}
+  .foot .fb b{color:var(--gold)}
+  .foot .fnote{font-family:'Space Mono',monospace; font-size:12px; color:var(--muted-2); letter-spacing:.04em}
+
+  /* scroll reveal */
+  .reveal{opacity:0; transform:translateY(20px); transition:opacity .7s ease, transform .7s ease}
+  .reveal.in{opacity:1; transform:none}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none!important; transition:none!important}
+    .reveal{opacity:1; transform:none}
+    .path::before{transform:none!important}
+    .path .stage{opacity:1; transform:none}
+  }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top">Muhammad <b>Asad</b></a>
+    <div class="nav-links">
+      <a href="#path">Approach</a>
+      <a href="#build">Services</a>
+      <a href="#copy">Copywriting</a>
+      <a href="#stack">CRO &amp; Testing</a>
+      <a href="#pdp-research">Research</a>
+      <a href="#work">Live work</a>
+      <a class="nav-cta" href="#contact">Hire me</a>
+    </div>
+  </div>
+</nav>
+
+<a id="top"></a>
+<header>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">Shopify CRO &amp; Landing Page Developer</span>
+        <h1>I build pages<br>that <span class="accent">convert.</span></h1>
+        <p class="lede">Freelance <b>Shopify landing page developer and direct-response copywriter</b> for DTC brands. Landing pages, PDPs, and checkout funnels built with CRO and A/B testing in mind — plus Checkout Champ and Funnelish when a funnel needs them.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#work">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            See live work
+          </a>
+          <a class="btn btn-ghost" href="#contact">Start a project</a>
+        </div>
+      </div>
+      <aside class="hero-card">
+        <span class="k">Platforms mastered</span>
+        <div class="plat">
+          <div class="plat-row"><span class="name">Shopify</span><span class="tag">landing pages · CRO</span></div>
+          <div class="plat-row"><span class="name">Copywriting</span><span class="tag">direct-response</span></div>
+          <div class="plat-row"><span class="name">A/B Testing</span><span class="tag">offer · price</span></div>
+          <div class="plat-row"><span class="name">CheckoutChamp</span><span class="tag">checkout · upsell</span></div>
+          <div class="plat-row"><span class="name">Funnelish</span><span class="tag">full funnel</span></div>
+        </div>
+      </aside>
+    </div>
+
+    <div class="stats reveal">
+      <div class="stat"><div class="num">20+</div><div class="lbl">Funnels &amp; pages built</div></div>
+      <div class="stat"><div class="num">3</div><div class="lbl">Platforms mastered</div></div>
+      <div class="stat"><div class="num">1:1</div><div class="lbl">Pixel-accurate builds</div></div>
+      <div class="stat"><div class="num">Full</div><div class="lbl">Advertorial → upsell</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- MONEY PATH -->
+<section id="path">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">The approach</span>
+      <h2>Most developers ship a page and move on. I test what actually converts.</h2>
+      <p>A landing page isn't the finish line — it's one step in a system: copy, offer, checkout, and what happens after. I build every stage with CRO and A/B testing in mind, so decisions are backed by data, not guesses. Here's the path a visitor travels, and where conversion really compounds.</p>
+    </div>
+
+    <div class="path" id="moneyPath">
+      <div class="stage"><div class="dot"></div><div class="st-name">Advertorial</div><div class="st-sub">attention</div></div>
+      <div class="stage"><div class="dot"></div><div class="st-name">Landing</div><div class="st-sub">intent</div></div>
+      <div class="stage key"><div class="dot"></div><div class="st-name">Checkout</div><div class="st-sub">conversion</div></div>
+      <div class="stage key"><div class="dot"></div><div class="st-name">Upsell</div><div class="st-sub">+ AOV</div></div>
+      <div class="stage key"><div class="dot"></div><div class="st-name">Downsell</div><div class="st-sub">recovery</div></div>
+    </div>
+    <div class="path-note reveal"><span class="pip"></span> Gold stages are where AOV and revenue compound — and where most builds fall short.</div>
+  </div>
+</section>
+
+<!-- WHAT I BUILD -->
+<section id="build" style="padding-top:20px">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">What I build</span>
+      <h2>Everything between the ad click and the thank-you page.</h2>
+    </div>
+    <div class="build-grid">
+      <div class="build reveal"><span class="ix">01</span><h3>Shopify Landing Pages</h3><p>High-converting landing pages and PDPs built natively on Shopify — fast, mobile-first, and matched 1:1 to your design.</p></div>
+      <div class="build reveal"><span class="ix">02</span><h3>CRO &amp; A/B Testing</h3><p>Structured tests on layout, offer, and price — so decisions are backed by data, not guesses.</p></div>
+      <div class="build reveal"><span class="ix">03</span><h3>Upsells &amp; Downsells</h3><p>Post-purchase offers and order bumps that raise average order value without hurting conversion.</p></div>
+      <div class="build reveal"><span class="ix">04</span><h3>Front-End Development</h3><p>Custom HTML, CSS &amp; JS for anything the page builder can't do — pixel-matched to your design.</p></div>
+      <div class="build reveal"><span class="ix">05</span><h3>Checkout Champ &amp; Funnelish Builds</h3><p>Custom checkouts and full sales funnels on Checkout Champ and Funnelish, when the offer calls for it.</p></div>
+      <div class="build reveal"><span class="ix">06</span><h3>Subscription Setups</h3><p>Recurring offers and toggles configured cleanly across PDP and checkout for predictable revenue.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- COPYWRITING -->
+<section id="copy" style="padding-top:20px">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Copywriting for funnels</span>
+      <h2>The best-built page still needs the right words.</h2>
+      <p>A pixel-perfect page converts nothing if the copy doesn't sell. I write the copy for the funnels I build — advertorials, headlines, offer stacks, and upsell scripts — so the message and the build are never two separate jobs stitched together.</p>
+    </div>
+    <div class="build-grid">
+      <div class="build reveal"><span class="ix">01</span><h3>Advertorial &amp; Hook Writing</h3><p>Story-driven advertorials and ad-to-page hooks built to carry cold traffic into the funnel without losing them at the first scroll.</p></div>
+      <div class="build reveal"><span class="ix">02</span><h3>Landing Page &amp; PDP Copy</h3><p>Headlines, bullets, and product narrative written to sell the offer — not just describe the product.</p></div>
+      <div class="build reveal"><span class="ix">03</span><h3>Offer Stack &amp; Pricing Copy</h3><p>How the offer, bonuses, and guarantee are framed and ordered — often the real difference between a page that converts and one that doesn't.</p></div>
+      <div class="build reveal"><span class="ix">04</span><h3>Upsell &amp; Downsell Scripts</h3><p>Post-purchase copy written to raise AOV without feeling like a second, unwanted ask.</p></div>
+      <div class="build reveal"><span class="ix">05</span><h3>A/B Tested Headlines &amp; CTAs</h3><p>Multiple headline and CTA variants written for testing — not just one "best guess" version shipped and left alone.</p></div>
+      <div class="build reveal"><span class="ix">06</span><h3>Voice &amp; Brand Match</h3><p>Copy written to match your brand's existing tone, so the funnel reads as one voice — not a build and a copywriter's work stitched together.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CRO & TESTING -->
+<section id="stack" style="padding-top:20px">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">CRO &amp; Testing</span>
+      <h2>If you're not testing it, you're guessing.</h2>
+      <p>Every landing page, offer, and price point can be tested — but only if the tracking underneath it is accurate. I set up analytics and attribution properly, then use that data to run structured A/B tests instead of one-off redesigns.</p>
+    </div>
+    <div class="build-grid">
+      <div class="build reveal"><span class="ix">01</span><h3>A/B &amp; Multivariate Testing</h3><p>Hypothesis-driven tests on layout, copy, offer, and price (Intelligems and native tools) — so changes are backed by data, not gut feel.</p></div>
+      <div class="build reveal"><span class="ix">02</span><h3>Conversion Analytics</h3><p>Google Analytics and Meta Pixel set up across multi-step funnels — accurate events on checkout, upsells, and order bumps, no duplicated or missing purchases.</p></div>
+      <div class="build reveal"><span class="ix">03</span><h3>Attribution &amp; UTM Tracking</h3><p>UTM parameters carried cleanly from ad to landing to checkout, so you know exactly which campaign actually produced the order.</p></div>
+      <div class="build reveal"><span class="ix">04</span><h3>Landing Page &amp; PDP Optimization</h3><p>Structure, copy, and offer placement refined against real user behavior — mobile-first, fast-loading, and built to be tested, not just shipped.</p></div>
+      <div class="build reveal"><span class="ix">05</span><h3>Shopify &amp; Backend Sync</h3><p>Orders, inventory, and subscriptions synced accurately between Shopify and Checkout Champ/Funnelish, so the data behind every test can be trusted.</p></div>
+      <div class="build reveal"><span class="ix">06</span><h3>Post-Purchase &amp; Retention Signals</h3><p>Webhooks into email/CRM flows on purchase, upsell accept, and decline — so retention decisions run on the same data as your funnel tests.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- DTC PDP RESEARCH -->
+<section id="pdp-research" style="padding-top:20px">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">DTC PDP Research</span>
+      <h2>Product pages I study for CRO patterns.</h2>
+      <p>Ongoing research into how top DTC brands structure their product pages — layout, offer stacking, and copy — to bring proven patterns into client builds.</p>
+    </div>
+    <div class="proj-grid">
+      <a class="proj reveal" href="https://bambuearth.com/products/shea-butter-moisturizer" target="_blank" rel="noopener"><span class="meta"><span class="pname">Bambu Earth</span><span class="ptype">PDP · Skincare</span></span><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a>
+      <a class="proj reveal" href="https://www.medik8.com/products/crystal-retinal" target="_blank" rel="noopener"><span class="meta"><span class="pname">Medik8</span><span class="ptype">PDP · Skincare</span></span><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a>
+      <a class="proj reveal" href="https://mantasleep.com/products/manta-sleep-mask-pro" target="_blank" rel="noopener"><span class="meta"><span class="pname">Manta Sleep</span><span class="ptype">PDP · Wellness</span></span><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a>
+      <a class="proj reveal" href="https://us.purdyandfigg.com/pages/completestarterkit" target="_blank" rel="noopener"><span class="meta"><span class="pname">Purdy &amp; Figg</span><span class="ptype">PDP · Bundle</span></span><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a>
+      <a class="proj reveal" href="https://www.beardbrand.com/products/old-money-beard-oil" target="_blank" rel="noopener"><span class="meta"><span class="pname">Beardbrand</span><span class="ptype">PDP · Grooming</span></span><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a>
+      <a class="proj reveal" href="https://www.dieuxskin.com/products/instant-angel" target="_blank" rel="noopener"><span class="meta"><span class="pname">Dieux</span><span class="ptype">PDP · Skincare</span></span><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a>
+      <a class="proj reveal" href="https://bushbalm.com/products/dark-spot-treatment" target="_blank" rel="noopener"><span class="meta"><span class="pname">Bushbalm</span><span class="ptype">PDP · Skincare</span></span><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a>
+      <a class="proj reveal" href="https://primallypure.com/products/blue-tansy-deodorant" target="_blank" rel="noopener"><span class="meta"><span class="pname">Primally Pure</span><span class="ptype">PDP · Personal Care</span></span><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE PROJECTS -->
+<section id="work">
+  <div class="wrap">
+    <div class="proj-head reveal">
+      <div class="sec-head" style="margin:0">
+        <span class="eyebrow">Live work</span>
+        <h2>Real, deployed pages.</h2>
+        <p>Every link below opens a live build. Click any to see the actual page in the wild.</p>
+      </div>
+      <span class="proj-count">21 / live</span>
+    </div>
+
+    <div class="proj-grid">
+      <a class="proj reveal" href="https://try.getwidestep.com/lead" target="_blank" rel="noopener"><span class="meta"><span class="pname">WideStep</span><span class="ptype">Lead Page · CheckoutChamp</span></span><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a>
+      <a class="proj reveal" href="https://go.getflowerpower.com/adv/day3" target="_blank" rel="noopener"><span class="meta"><span class="pname">FlowerPower</span><span class="ptype">Advertorial · Funnelish</span></span><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a>
+      <a class="proj reveal" href="https://go.getflowerpower.com/adv/why-creams-fail" target="_blank" rel="noopener"><span class="meta"><span class="pname">FlowerPower</span><span class="ptype">Advertorial · Funnelish</span></span><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a>
+      <a class="proj reveal" href="https://offer.ancientremediesrevived.com/c3-nb" target="_blank" rel="noopener"><span class="meta"><span class="pname">Ancient Remedies</span><span class="ptype">Offer Page</span></span><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a>
+      <a class="proj reveal" href="https://swmyrpgzab.myfunnelish.com/DermaEx/lp" target="_blank" rel="noopener"><span class="meta"><span class="pname">DermaEx</span><span class="ptype">Landing Page</span></span><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a>
+      <a class="proj reveal" href="https://swmyrpgzab.myfunnelish.com/dermxell-sales-jb-1758639161756266-1762426452494443" target="_blank" rel="noopener"><span class="meta"><span class="pname">Dermxell</span><span class="ptype">Sales Funnel</span></span><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a>
+      <a class="proj reveal" href="https://swmyrpgzab.myfunnelish.com/lp1-liverboost" target="_blank" rel="noopener"><span class="meta"><span class="pname">LiverBoost</span><span class="ptype">Landing Page</span></span><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a>
+      <a class="proj reveal" href="https://blog.getonylase.com/adv22#next-step" target="_blank" rel="noopener"><span class="meta"><span class="pname">Onylase</span><span class="ptype">Advertorial</span></span><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a>
+      <a class="proj reveal" href="https://checkout.myrejuvaknee.com/the-fastest-way-to-fix-lymphedema-adv" target="_blank" rel="noopener"><span class="meta"><span class="pname">RejuvaKnee</span><span class="ptype">Checkout</span></span><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a>
+      <a class="proj reveal" href="https://try.relieflylab-us.com/reviews-2" target="_blank" rel="noopener"><span class="meta"><span class="pname">RelieflyLab</span><span class="ptype">Reviews Page</span></span><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a>
+      <a class="proj reveal" href="https://try.reneweva.com/#next-step" target="_blank" rel="noopener"><span class="meta"><span class="pname">Reneweva</span><span class="ptype">Funnel</span></span><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a>
+      <a class="proj reveal" href="https://offer.savelix.com/acd-sp-a" target="_blank" rel="noopener"><span class="meta"><span class="pname">Savelix</span><span class="ptype">Offer Page</span></span><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a>
+      <a class="proj reveal" href="https://shop.trysolanova.com/ezs-ps" target="_blank" rel="noopener"><span class="meta"><span class="pname">Solanova</span><span class="ptype">Sales Page</span></span><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a>
+      <a class="proj reveal" href="https://tummybites.com/lp#next-step" target="_blank" rel="noopener"><span class="meta"><span class="pname">TummyBites</span><span class="ptype">Landing Page</span></span><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a>
+      <a class="proj reveal" href="https://swmyrpgzab.myfunnelish.com/auralift" target="_blank" rel="noopener"><span class="meta"><span class="pname">AuraLift</span><span class="ptype">Landing Page</span></span><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a>
+      <a class="proj reveal" href="https://swmyrpgzab.myfunnelish.com/neckyout" target="_blank" rel="noopener"><span class="meta"><span class="pname">NeckYout</span><span class="ptype">Sales Page</span></span><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a>
+      <a class="proj reveal" href="https://offer.trustapollo.com/hydroblast/hyrdoblast/v1/news" target="_blank" rel="noopener"><span class="meta"><span class="pname">HydroBlast</span><span class="ptype">News / Advertorial</span></span><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a>
+      <a class="proj reveal" href="https://offer.trustapollo.com/quantum/adv2/news" target="_blank" rel="noopener"><span class="meta"><span class="pname">Quantum</span><span class="ptype">News / Advertorial</span></span><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a>
+      <a class="proj reveal" href="https://try.ridolabs.com/parasite-cleanse" target="_blank" rel="noopener"><span class="meta"><span class="pname">RidoLabs</span><span class="ptype">Landing Page</span></span><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a>
+      <a class="proj reveal" href="https://tryelvera.com/pages/real-constipation-solution" target="_blank" rel="noopener"><span class="meta"><span class="pname">Elvera</span><span class="ptype">Landing Page · Shopify</span></span><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a>
+      <a class="proj reveal" href="https://shower.drivse.com/list2108" target="_blank" rel="noopener"><span class="meta"><span class="pname">IonDrops</span><span class="ptype">Full Funnel · CheckoutChamp</span></span><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="contact reveal">
+      <span class="eyebrow" style="justify-content:center">Available now</span>
+      <h2>Let's build a funnel<br>that earns its keep.</h2>
+      <p>Open for freelance projects and collaborations. Message me here on Upwork with the page you want built or fixed, and I'll tell you exactly how I'd approach it.</p>
+      <div class="contact-actions">
+        <a class="btn btn-primary" href="#work">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          See live work
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <span class="fb">Muhammad <b>Asad</b></span>
+    <span class="fnote">Shopify CRO &amp; Landing Pages · Direct-Response Copy · Checkout Champ · Funnelish</span>
+  </div>
+</footer>
+
+<script>
+  // nav border on scroll
+  const nav = document.getElementById('nav');
+  addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 12), {passive:true});
+
+  // scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  }, {threshold:.14, rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach((el,i) => {
+    el.style.transitionDelay = (Math.min(i%6,5)*0.05) + 's';
+    io.observe(el);
+  });
+  // safety fallback: force everything visible shortly after load, so
+  // screenshot tools, link previews, and slow/no-scroll captures never show blank sections
+  setTimeout(() => {
+    document.querySelectorAll('.reveal:not(.in)').forEach(el => el.classList.add('in'));
+  }, 1200);
+
+  // money path light-up
+  const path = document.getElementById('moneyPath');
+  const pio = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('lit'); pio.unobserve(e.target);} });
+  }, {threshold:.4});
+  pio.observe(path);
+</script>
+</body>
+</html>

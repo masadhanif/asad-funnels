@@ -524,6 +524,11 @@
     el.style.transitionDelay = (Math.min(i%6,5)*0.05) + 's';
     io.observe(el);
   });
+  // safety fallback: force everything visible shortly after load, so
+  // screenshot tools, link previews, and slow/no-scroll captures never show blank sections
+  setTimeout(() => {
+    document.querySelectorAll('.reveal:not(.in)').forEach(el => el.classList.add('in'));
+  }, 1200);
 
   // money path light-up
   const path = document.getElementById('moneyPath');

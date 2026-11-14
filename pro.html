@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Muhammad Asad — Checkout Champ, Funnelish & Phoenix Funnel Developer for DTC Brands</title>
+<meta name="description" content="I build and fix the sales funnels DTC brands run paid traffic into: Checkout Champ, Funnelish, Phoenix (Reign) and Shopify. Landing pages, checkouts, upsells, subscriptions and CRO.">
+<meta property="og:title" content="Muhammad Asad — DTC Funnel Developer">
+<meta property="og:description" content="Checkout Champ, Funnelish, Phoenix (Reign) and Shopify funnels for DTC brands. Top Rated on Upwork, 100% Job Success.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#08090B; --bg2:#0E1014; --card:#12151B; --card2:#171B22; --line:#232833; --line2:#2E3440;
+  --text:#F3F5F8; --muted:#A9B1BE; --muted2:#7D8696;
+  --accent:#FF6B2C; --accent2:#FF9159; --good:#4ADE9B;
+  --r:16px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img{max-width:100%;display:block}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:'Space Grotesk',sans-serif;letter-spacing:-.03em;line-height:1.05;margin:0}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+.eyebrow::before{content:"";width:24px;height:1px;background:var(--accent)}
+section{padding:96px 0}
+.sec-head{max-width:720px;margin-bottom:48px}
+.sec-head h2{font-size:clamp(30px,4.2vw,48px);margin-top:14px}
+.sec-head p{color:var(--muted);font-size:17px;margin:16px 0 0}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:0 26px;border-radius:999px;font-weight:600;font-size:15px;text-decoration:none;transition:transform .2s,background .2s,border-color .2s}
+.btn-primary{background:var(--accent);color:#120804}
+.btn-primary:hover{background:var(--accent2);transform:translateY(-2px)}
+.btn-ghost{border:1px solid var(--line2);color:var(--text)}
+.btn-ghost:hover{border-color:var(--accent);transform:translateY(-2px)}
+.btn svg{width:18px;height:18px}
+
+/* nav */
+nav{position:sticky;top:0;z-index:50;background:rgba(8,9,11,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:16px;height:68px}
+.brand{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:18px;text-decoration:none}
+.brand b{color:var(--accent)}
+.nav-links{display:flex;gap:26px;font-size:14px;color:var(--muted)}
+.nav-links a{text-decoration:none}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{min-height:42px;padding:0 18px;font-size:14px}
+@media(max-width:900px){.nav-links{display:none}}
+
+/* hero */
+.hero{padding:88px 0 72px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:-200px -200px auto auto;width:640px;height:640px;background:radial-gradient(closest-side,rgba(255,107,44,.18),transparent);pointer-events:none}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border:1px solid var(--line2);border-radius:999px;font-size:13px;color:var(--muted);background:var(--bg2)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--good);box-shadow:0 0 0 4px rgba(74,222,155,.15)}
+.hero h1{font-size:clamp(38px,6.4vw,76px);margin:26px 0 0;max-width:15ch}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero p.lead{font-size:clamp(17px,1.6vw,20px);color:var(--muted);max-width:640px;margin:24px 0 0}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;margin-top:64px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.stat{background:var(--bg2);padding:22px 24px}
+.stat b{display:block;font-family:'Space Grotesk',sans-serif;font-size:clamp(24px,3vw,34px);letter-spacing:-.02em}
+.stat span{font-size:13px;color:var(--muted2)}
+@media(max-width:760px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* platforms */
+.platforms{padding:26px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg2)}
+.plat-row{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 12px}
+.plat{padding:9px 16px;border:1px solid var(--line2);border-radius:999px;font-size:14px;font-weight:600;color:var(--muted)}
+.plat.hot{color:var(--text);border-color:rgba(255,107,44,.5)}
+
+/* featured result */
+.result{display:grid;grid-template-columns:1.1fr 1fr;gap:28px;align-items:stretch}
+.result-card{background:linear-gradient(160deg,#1A1210,#12151B 60%);border:1px solid rgba(255,107,44,.35);border-radius:22px;padding:34px}
+.result-card h3{font-size:clamp(24px,2.6vw,32px);margin-top:12px}
+.result-card p{color:var(--muted);margin:14px 0 0}
+.kpis{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:24px}
+.kpi b{display:block;font-family:'Space Grotesk',sans-serif;font-size:clamp(30px,3.6vw,44px);color:var(--accent);letter-spacing:-.03em}
+.kpi span{color:var(--muted);font-size:14px}
+.fine{font-size:12.5px;color:var(--muted2);margin-top:14px}
+@media(max-width:900px){.result{grid-template-columns:1fr}}
+
+/* case studies */
+.cases{display:flex;flex-direction:column;gap:22px}
+.case{display:grid;grid-template-columns:1fr 1.05fr;gap:0;background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden}
+.case:nth-child(even) .case-media{order:2}
+.case-media{background:#000;min-height:300px;position:relative;overflow:hidden}
+.case-media img{width:100%;height:100%;object-fit:cover;object-position:center top;transform:scale(1.24);transform-origin:center top}
+.case-body{padding:34px}
+.case-tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 10px;border-radius:7px;background:rgba(255,107,44,.1);color:var(--accent2)}
+.case h3{font-size:clamp(22px,2.4vw,28px);margin:16px 0 0}
+.case dl{margin:18px 0 0;display:grid;gap:12px}
+.case dt{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted2)}
+.case dd{margin:2px 0 0;color:var(--muted)}
+.case-nums{display:flex;flex-wrap:wrap;gap:22px;margin-top:22px;padding-top:20px;border-top:1px solid var(--line)}
+.case-nums div b{display:block;font-family:'Space Grotesk',sans-serif;font-size:26px}
+.case-nums div span{font-size:12.5px;color:var(--muted2)}
+.case-link{display:inline-flex;align-items:center;gap:6px;margin-top:20px;color:var(--accent2);font-weight:600;text-decoration:none;font-size:14px}
+.case-link:hover{color:var(--text)}
+.flow{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;gap:10px;padding:28px;background:radial-gradient(closest-side at 70% 30%,rgba(255,107,44,.16),transparent),#0B0D11}
+.flow-step{display:flex;align-items:center;gap:12px;background:var(--card2);border:1px solid var(--line2);border-radius:12px;padding:12px 14px;font-weight:600;font-size:14px}
+.flow-step i{font-style:normal;width:28px;height:28px;border-radius:50%;background:var(--accent);color:#120804;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;flex:none}
+@media(max-width:900px){.case{grid-template-columns:1fr}.case:nth-child(even) .case-media{order:0}.case-media{min-height:240px}.flow{position:relative;inset:auto}}
+
+/* proof */
+.proof-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.pf{display:block;background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;text-decoration:none;transition:border-color .2s,transform .2s}
+.pf:hover{border-color:var(--accent);transform:translateY(-3px)}
+.pf-img{aspect-ratio:16/10;overflow:hidden;background:#000}
+.pf-img img{width:100%;height:100%;object-fit:cover;object-position:center top;transform:scale(1.24);transform-origin:center top}
+.pf-b{padding:16px 18px}
+.pf-b small{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.pf-b strong{display:block;font-family:'Space Grotesk',sans-serif;font-size:17px;margin-top:4px}
+@media(max-width:900px){.proof-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.proof-grid{grid-template-columns:1fr}}
+
+/* work grid */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.filters button{min-height:42px;padding:0 16px;border-radius:999px;border:1px solid var(--line2);background:transparent;color:var(--muted);font:600 14px Inter,sans-serif;cursor:pointer}
+.filters button:hover{color:var(--text);border-color:var(--muted2)}
+.filters button[aria-pressed="true"]{background:var(--text);color:var(--bg);border-color:var(--text)}
+.work-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.w{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 20px;background:var(--card);border:1px solid var(--line);border-radius:14px;text-decoration:none;transition:border-color .2s,background .2s}
+.w:hover{border-color:var(--accent);background:var(--card2)}
+.w b{display:block;font-family:'Space Grotesk',sans-serif;font-size:17px}
+.w span{font-size:12.5px;color:var(--muted2)}
+.w svg{width:18px;height:18px;flex:none;color:var(--muted)}
+.w[hidden]{display:none}
+@media(max-width:900px){.work-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.work-grid{grid-template-columns:1fr}}
+
+/* reviews */
+.reviews{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.rev{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px}
+.stars{color:#FFC24B;letter-spacing:2px;font-size:15px}
+.rev p{font-size:17px;margin:12px 0 0;color:var(--text)}
+.rev small{display:block;margin-top:14px;color:var(--muted2);font-size:13px}
+@media(max-width:760px){.reviews{grid-template-columns:1fr}}
+
+/* process */
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;counter-reset:s}
+.step{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:24px}
+.step::before{counter-increment:s;content:"0" counter(s);font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--accent);font-size:14px}
+.step h3{font-size:19px;margin-top:12px}
+.step p{color:var(--muted);font-size:14.5px;margin:10px 0 0}
+.async{margin-top:18px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;padding:18px 22px;border:1px dashed var(--line2);border-radius:var(--r);color:var(--muted);font-size:15px}
+.async b{color:var(--text)}
+@media(max-width:900px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.steps{grid-template-columns:1fr}}
+
+/* services */
+.svc{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.svc-card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px}
+.svc-card h3{font-size:20px}
+.svc-card ul{margin:14px 0 0;padding:0;list-style:none;display:grid;gap:8px}
+.svc-card li{color:var(--muted);font-size:14.5px;padding-left:22px;position:relative}
+.svc-card li::before{content:"";position:absolute;left:0;top:9px;width:10px;height:6px;border-left:2px solid var(--accent);border-bottom:2px solid var(--accent);transform:rotate(-45deg)}
+@media(max-width:900px){.svc{grid-template-columns:1fr}}
+
+/* faq */
+.faq{display:grid;gap:10px;max-width:860px}
+details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:0 22px}
+summary{cursor:pointer;list-style:none;min-height:60px;display:flex;align-items:center;justify-content:space-between;gap:16px;font-weight:600;font-size:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:22px;color:var(--accent);flex:none}
+details[open] summary::after{content:"−"}
+details p{margin:0 0 20px;color:var(--muted)}
+
+/* cta */
+.cta{background:linear-gradient(140deg,#1C120D,#0E1014 55%);border:1px solid rgba(255,107,44,.35);border-radius:28px;padding:clamp(32px,6vw,64px);text-align:center}
+.cta h2{font-size:clamp(30px,4.6vw,54px);max-width:18ch;margin:14px auto 0}
+.cta p{color:var(--muted);max-width:560px;margin:18px auto 0;font-size:17px}
+.cta .hero-cta{justify-content:center}
+footer{padding:36px 0;border-top:1px solid var(--line);color:var(--muted2);font-size:13px}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+.foot a{text-decoration:none}.foot a:hover{color:var(--text)}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<nav aria-label="Main">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top">Muhammad <b>Asad</b></a>
+    <div class="nav-links">
+      <a href="#results">Results</a>
+      <a href="#cases">Case studies</a>
+      <a href="#proof">Proof</a>
+      <a href="#work">Live work</a>
+      <a href="#process">Process</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <a class="btn btn-primary nav-cta" href="#contact">Send your funnel</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <span class="badge"><span class="dot"></span>Taking new DTC projects</span>
+    <h1>Funnels that turn paid traffic into <em>orders.</em></h1>
+    <p class="lead">I build and fix sales funnels for DTC brands on Checkout Champ, Funnelish, Phoenix (Reign) and Shopify: landing pages, checkouts, one-click upsells, subscriptions and CRO, tested end to end before they go live.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#contact">Get a free funnel review <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn btn-ghost" href="#cases">See case studies</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>Top Rated</b><span>on Upwork</span></div>
+      <div class="stat"><b>100%</b><span>Job Success Score</span></div>
+      <div class="stat"><b>$40K+</b><span>earned on Upwork</span></div>
+      <div class="stat"><b>3,100+</b><span>hours billed</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="platforms" aria-label="Platforms">
+  <div class="wrap plat-row">
+    <span class="plat hot">Checkout Champ</span><span class="plat hot">Funnelish</span><span class="plat hot">Phoenix (Reign)</span><span class="plat hot">Shopify</span><span class="plat">Loop Subscriptions</span><span class="plat">Klaviyo</span><span class="plat">Replo</span><span class="plat">Kaching Bundles</span><span class="plat">Meta Pixel &amp; GTM</span>
+  </div>
+</div>
+
+<section id="results">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Results</span>
+      <h2>What one live funnel did in its first week.</h2>
+      <p>A Checkout Champ funnel with subscription and upsell offers, built from landing page to thank-you page.</p>
+    </div>
+    <div class="result">
+      <div class="result-card reveal">
+        <div class="case-tags"><span class="tag">Checkout Champ</span><span class="tag">Subscriptions</span><span class="tag">Upsells</span></div>
+        <h3>Landing page, checkout and a multi-step upsell path, launched on paid traffic.</h3>
+        <p>Built and tested with real test orders across mobile and desktop: payments, upsells, subscriptions, emails and Shopify sync.</p>
+        <p class="fine">Real campaign results. Traffic, creative and the offer also drive results, so these are not a promise of future performance.</p>
+      </div>
+      <div class="kpis">
+        <div class="kpi reveal"><b>32%</b><span>checkout conversion rate</span></div>
+        <div class="kpi reveal"><b>$23K+</b><span>revenue in week one</span></div>
+        <div class="kpi reveal"><b>400+</b><span>orders, 256 new customers</span></div>
+        <div class="kpi reveal"><b>$63</b><span>average order value</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cases" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Case studies</span>
+      <h2>Problem, build, result.</h2>
+      <p>Selected projects for supplement and wellness brands. Client names are kept private.</p>
+    </div>
+    <div class="cases">
+
+      <article class="case reveal">
+        <div class="case-media"><img src="proof/cc_campaigns.jpg" alt="Checkout Champ campaign connected to Shopify" loading="lazy"></div>
+        <div class="case-body">
+          <div class="case-tags"><span class="tag">Checkout Champ</span><span class="tag">Shopify</span><span class="tag">Supplements</span></div>
+          <h3>Full Checkout Champ funnel for a US wellness brand</h3>
+          <dl>
+            <div><dt>Problem</dt><dd>The brand needed one funnel that could sell subscriptions, raise AOV with upsells and stay in sync with Shopify.</dd></div>
+            <div><dt>What I built</dt><dd>Long-form sales page, conversion-focused checkout, six one-click upsells and a downsell, subscription options, Shopify product mapping and post-purchase routing.</dd></div>
+          </dl>
+          <div class="case-nums">
+            <div><b>$115K+</b><span>gross revenue</span></div>
+            <div><b>18.2%</b><span>conversion rate</span></div>
+            <div><b>2,003</b><span>orders</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="case reveal">
+        <div class="case-media"><img src="proof/loop_upcoming_email.jpg" alt="Branded subscription email in Loop Subscriptions" loading="lazy"></div>
+        <div class="case-body">
+          <div class="case-tags"><span class="tag">Loop</span><span class="tag">Checkout Champ</span><span class="tag">Retention</span></div>
+          <h3>Subscription retention stack for a supplement brand</h3>
+          <dl>
+            <div><dt>Problem</dt><dd>Subscribers got generic system emails and had no clear way to pause or skip, which pushes people to cancel or dispute.</dd></div>
+            <div><dt>What I built</dt><dd>Branded Loop emails for the full lifecycle, Checkout Champ auto-responders (pre-billing reminder, declined payment, paused, reactivated, card updated) and a store-matched customer portal.</dd></div>
+          </dl>
+          <a class="case-link" href="#proof">See the setup screens <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+
+      <article class="case reveal">
+        <div class="case-media">
+          <div class="flow" aria-label="Funnel steps">
+            <div class="flow-step"><i>1</i>Advertorial</div>
+            <div class="flow-step"><i>2</i>Sales page</div>
+            <div class="flow-step"><i>3</i>Checkout with bundles + subscription toggle</div>
+            <div class="flow-step"><i>4</i>Video upsell</div>
+            <div class="flow-step"><i>5</i>Upsell 2 &amp; last-chance downsell</div>
+          </div>
+        </div>
+        <div class="case-body">
+          <div class="case-tags"><span class="tag">Checkout Champ</span><span class="tag">Full funnel</span><span class="tag">Home goods</span></div>
+          <h3>One brand, one complete funnel: six connected pages</h3>
+          <dl>
+            <div><dt>Problem</dt><dd>A shower-filter brand needed the whole path from cold traffic to the last offer, not just a single page.</dd></div>
+            <div><dt>What I built</dt><dd>Advertorial, sales page, checkout with bundle offers and a filter auto-refill toggle, a video upsell, a second upsell and a last-chance downsell.</dd></div>
+          </dl>
+          <a class="case-link" href="https://shower.drivse.com/list2108" target="_blank" rel="noopener">Open the live funnel <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+        </div>
+      </article>
+
+      <article class="case reveal">
+        <div class="case-media"><img src="proof/shopify_custom_section.jpg" alt="Custom Shopify Liquid section for landing pages" loading="lazy"></div>
+        <div class="case-body">
+          <div class="case-tags"><span class="tag">Shopify</span><span class="tag">AI workflow</span><span class="tag">Compliance</span></div>
+          <h3>AI system that builds compliant landing pages</h3>
+          <dl>
+            <div><dt>Problem</dt><dd>A supplement brand wanted new listicles and advertorials fast, without breaking the live theme or making risky health claims.</dd></div>
+            <div><dt>What I built</dt><dd>A reusable Shopify "Landing blocks" section plus an AI workflow that builds pages from a brief in a draft theme, flags non-compliant claims and fake proof, and runs desktop and mobile QA before review.</dd></div>
+          </dl>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="proof" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Platform proof</span>
+      <h2>Real setups, inside the tools.</h2>
+      <p>Screens from live client accounts. Brand names and customer details are blurred. Click any card for the full screenshot.</p>
+    </div>
+    <div class="proof-grid">
+      <a class="pf reveal" href="proof/cc_subscription_emails.jpg" target="_blank" rel="noopener"><div class="pf-img"><img src="proof/cc_subscription_emails.jpg" alt="Checkout Champ subscription auto-responders" loading="lazy"></div><div class="pf-b"><small>Checkout Champ</small><strong>Subscription auto-responders</strong></div></a>
+      <a class="pf reveal" href="proof/cc_payment_rules.jpg" target="_blank" rel="noopener"><div class="pf-img"><img src="proof/cc_payment_rules.jpg" alt="Checkout Champ campaign payment rules" loading="lazy"></div><div class="pf-b"><small>Checkout Champ</small><strong>Campaign payment rules</strong></div></a>
+      <a class="pf reveal" href="proof/cc_campaigns.jpg" target="_blank" rel="noopener"><div class="pf-img"><img src="proof/cc_campaigns.jpg" alt="Shopify campaign with 77 offers in Checkout Champ" loading="lazy"></div><div class="pf-b"><small>Checkout Champ + Shopify</small><strong>77 offers mapped from Shopify</strong></div></a>
+      <a class="pf reveal" href="proof/loop_upcoming_email.jpg" target="_blank" rel="noopener"><div class="pf-img"><img src="proof/loop_upcoming_email.jpg" alt="Branded Loop upcoming order email" loading="lazy"></div><div class="pf-b"><small>Loop Subscriptions</small><strong>Branded upcoming-order email</strong></div></a>
+      <a class="pf reveal" href="proof/loop_notifications_2.jpg" target="_blank" rel="noopener"><div class="pf-img"><img src="proof/loop_notifications_2.jpg" alt="Loop subscription lifecycle email settings" loading="lazy"></div><div class="pf-b"><small>Loop Subscriptions</small><strong>Lifecycle emails</strong></div></a>
+      <a class="pf reveal" href="proof/shopify_custom_section.jpg" target="_blank" rel="noopener"><div class="pf-img"><img src="proof/shopify_custom_section.jpg" alt="Custom Shopify Liquid section" loading="lazy"></div><div class="pf-b"><small>Shopify</small><strong>Custom Liquid section</strong></div></a>
+    </div>
+  </div>
+</section>
+
+<section id="work" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Live work</span>
+      <h2>23 pages you can open right now.</h2>
+      <p>Every card opens a live build. Filter by page type.</p>
+    </div>
+    <div class="filters" role="group" aria-label="Filter live work">
+      <button type="button" data-f="all" aria-pressed="true">All</button>
+      <button type="button" data-f="store" aria-pressed="false">Stores</button>
+      <button type="button" data-f="adv" aria-pressed="false">Advertorials</button>
+      <button type="button" data-f="lp" aria-pressed="false">Landing &amp; sales pages</button>
+      <button type="button" data-f="checkout" aria-pressed="false">Checkouts &amp; offers</button>
+    </div>
+    <div class="work-grid" id="workGrid">
+      <a class="w" data-c="store" href="https://risevitals.com/" target="_blank" rel="noopener"><div><b>Rise Vitals</b><span>Shopify store · Supplements</span></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      <a class="w" data-c="store" href="https://snugvitals.com/" target="_blank" rel="noopener"><div><b>Snug Vitals</b><span>Shopify store · Pet supplements</span></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      <a class="w" data-c="checkout" href="https://shower.drivse.com/list2108" target="_blank" rel="noopener"><div><b>IonDrops</b><span>Full funnel · Checkout Champ</span></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      <a class="w" data-c="lp" href="https://try.getwidestep.com/lead" target="_blank" rel="noopener"><div><b>WideStep</b><span>Lead page · Checkout Champ</span></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      <a class="w" data-c="adv" href="https://go.getflowerpower.com/adv/day3" target="_blank" rel="noopener"><div><b>FlowerPower</b><span>Advertorial · Funnelish</span></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      <a class="w" data-c="adv" href="https://go.getflowerpower.com/adv/why-creams-fail" target="_blank" rel="noopener"><div><b>FlowerPower</b><span>Advertorial · Funnelish</span></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      <a class="w" data-c="checkout" href="https://offer.ancientremediesrevived.com/c3-nb" target="_blank" rel="noopener"><div><b>Ancient Remedies</b><span>Offer page</span></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      <a class="w" data-c="lp" href="https://swmyrpgzab.myfunnelish.com/DermaEx/lp" target="_blank" rel="noopener"><div><b>DermaEx</b><span>Landing page · Funnelish</span></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      <a class="w" data-c="lp" href="https://swmyrpgzab.myfunnelish.com/dermxell-sales-jb-1758639161756266-1762426452494443" target="_blank" rel="noopener"><div><b>Dermxell</b><span>Sales funnel · Funnelish</span></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      <a class="w" data-c="lp" href="https://swmyrpgzab.myfunnelish.com/lp1-liverboost" target="_blank" rel="noopener"><div><b>LiverBoost</b><span>Landing page · Funnelish</span></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      <a class="w" data-c="adv" href="https://blog.getonylase.com/adv22" target="_blank" rel="noopener"><div><b>Onylase</b><span>Advertorial</span></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      <a class="w" data-c="checkout" href="https://checkout.myrejuvaknee.com/the-fastest-way-to-fix-lymphedema-adv" target="_blank" rel="noopener"><div><b>RejuvaKnee</b><span>Checkout</span></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      <a class="w" data-c="lp" href="https://try.relieflylab-us.com/reviews-2" target="_blank" rel="noopener"><div><b>RelieflyLab</b><span>Reviews page</span></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      <a class="w" data-c="lp" href="https://try.reneweva.com/" target="_blank" rel="noopener"><div><b>Reneweva</b><span>Funnel</span></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      <a class="w" data-c="checkout" href="https://offer.savelix.com/acd-sp-a" target="_blank" rel="noopener"><div><b>Savelix</b><span>Offer page</span></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      <a class="w" data-c="lp" href="https://shop.trysolanova.com/ezs-ps" target="_blank" rel="noopener"><div><b>Solanova</b><span>Sales page</span></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      <a class="w" data-c="lp" href="https://tummybites.com/lp" target="_blank" rel="noopener"><div><b>TummyBites</b><span>Landing page</span></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      <a class="w" data-c="lp" href="https://swmyrpgzab.myfunnelish.com/auralift" target="_blank" rel="noopener"><div><b>AuraLift</b><span>Landing page · Funnelish</span></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      <a class="w" data-c="lp" href="https://swmyrpgzab.myfunnelish.com/neckyout" target="_blank" rel="noopener"><div><b>NeckYout</b><span>Sales page · Funnelish</span></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      <a class="w" data-c="adv" href="https://offer.trustapollo.com/hydroblast/hyrdoblast/v1/news" target="_blank" rel="noopener"><div><b>HydroBlast</b><span>News-style advertorial</span></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      <a class="w" data-c="adv" href="https://offer.trustapollo.com/quantum/adv2/news" target="_blank" rel="noopener"><div><b>Quantum</b><span>News-style advertorial</span></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      <a class="w" data-c="lp" href="https://try.ridolabs.com/parasite-cleanse" target="_blank" rel="noopener"><div><b>RidoLabs</b><span>Landing page</span></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      <a class="w" data-c="lp" href="https://tryelvera.com/pages/real-constipation-solution" target="_blank" rel="noopener"><div><b>Elvera</b><span>Landing page · Shopify</span></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<section id="reviews" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Client reviews</span>
+      <h2>What clients say on Upwork.</h2>
+    </div>
+    <div class="reviews">
+      <figure class="rev reveal" style="margin:0"><div class="stars" aria-label="5 out of 5 stars">★★★★★</div><p>“Muhammad's expertise with Checkout Champ was invaluable to our project. His skills on the platform are top-notch, with fast communication, and he consistently met deadlines.”</p><small>Checkout Champ Funnels Creation &amp; Shopify Integration · Upwork</small></figure>
+      <figure class="rev reveal" style="margin:0"><div class="stars" aria-label="5 out of 5 stars">★★★★★</div><p>“Great developer with very good work ethic and understanding of Checkout Champ. Would recommend.”</p><small>Checkout Champ &amp; Shopify Developer · Upwork</small></figure>
+      <figure class="rev reveal" style="margin:0"><div class="stars" aria-label="5 out of 5 stars">★★★★★</div><p>“It was great working with Muhammad. Understood the scope of work and was able to help efficiently.”</p><small>Ongoing Funnel Building / Development · Upwork</small></figure>
+      <figure class="rev reveal" style="margin:0"><div class="stars" aria-label="5 out of 5 stars">★★★★★</div><p>“Very good developer.”</p><small>Expert Funnelish Developer: Store Migration &amp; Post-Purchase Upsells · Upwork</small></figure>
+    </div>
+  </div>
+</section>
+
+<section id="services" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Services</span>
+      <h2>Where I can help.</h2>
+    </div>
+    <div class="svc">
+      <div class="svc-card reveal"><h3>Funnel builds</h3><ul><li>Landing, VSL, advertorial and sales pages</li><li>Checkout Champ, Funnelish and Phoenix (Reign) checkouts</li><li>One-click upsells, downsells and order bumps</li><li>Built from Figma, a reference or a brief</li></ul></div>
+      <div class="svc-card reveal"><h3>Subscriptions &amp; retention</h3><ul><li>Checkout Champ CRM, billing cycles and offers</li><li>Loop Subscriptions emails and portal</li><li>Cancel-flow save offers: skip, pause, discount</li><li>Shopify product mapping and order sync</li></ul></div>
+      <div class="svc-card reveal"><h3>CRO &amp; fixes</h3><ul><li>Funnel and product page audits on video</li><li>Offer structure, bundles and pricing tests</li><li>Pixel and purchase-event checks with test orders</li><li>Urgent fixes: broken checkouts, failed upsells</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="process" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Process</span>
+      <h2>Simple, safe, and fully async.</h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><h3>Send your funnel</h3><p>Share your offer and the funnel or store link, and tell me what's not working.</p></div>
+      <div class="step reveal"><h3>Get a clear plan</h3><p>I reply with the exact changes, in priority order, and how long each takes.</p></div>
+      <div class="step reveal"><h3>Build on a test copy</h3><p>Work happens on a copy with a backup, so your live funnel keeps selling.</p></div>
+      <div class="step reveal"><h3>Test, then launch</h3><p>Real test orders on mobile and desktop before anything goes live.</p></div>
+    </div>
+    <div class="async reveal"><b>No meetings needed.</b> You get Loom video walkthroughs and written updates you can read on your own time, whatever your time zone.</div>
+  </div>
+</section>
+
+<section id="faq" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">FAQ</span>
+      <h2>Common questions.</h2>
+    </div>
+    <div class="faq">
+      <details class="reveal"><summary>Which platforms do you work on?</summary><p>Checkout Champ, Funnelish, Phoenix (Reign) and Shopify, plus Loop Subscriptions, Klaviyo, Replo and Kaching Bundles.</p></details>
+      <details class="reveal"><summary>Will you touch my live funnel?</summary><p>Not without your approval. I build on a test copy, keep a backup, and only push live changes after you've tested and said yes.</p></details>
+      <details class="reveal"><summary>How do we communicate?</summary><p>In writing and with short Loom videos, so you always have a clear record of what changed and why.</p></details>
+      <details class="reveal"><summary>What time zone are you in?</summary><p>Pakistan (UTC+5). My day overlaps with UK afternoons and US East Coast mornings, and most updates are waiting in your inbox when you start work.</p></details>
+      <details class="reveal"><summary>How do we start?</summary><p>Send your funnel or store link with what you want to improve. I'll reply with a plan, a timeline and a fixed price or an hourly estimate.</p></details>
+    </div>
+  </div>
+</section>
+
+<section id="contact" style="padding-top:0">
+  <div class="wrap">
+    <div class="cta reveal">
+      <span class="eyebrow">Free funnel review</span>
+      <h2>Send me your funnel. I'll show you what to fix.</h2>
+      <p>Share your funnel or store link and I'll reply with the top fixes, in priority order, and how long they'll take.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="mailto:asadhanifweb@gmail.com?subject=Funnel%20review">Email my funnel link</a>
+        <a class="btn btn-ghost" href="https://www.upwork.com/freelancers/~018f124f4550f599ab" target="_blank" rel="noopener">Hire me on Upwork</a>
+        <a class="btn btn-ghost" href="https://wa.me/923023573491" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 Muhammad Asad · DTC funnel developer</span>
+    <span><a href="index.html">Previous portfolio</a> · <a href="https://www.linkedin.com/in/muhammad-asad-140197243" target="_blank" rel="noopener">LinkedIn</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btns=document.querySelectorAll('.filters button'), items=document.querySelectorAll('#workGrid .w');
+  btns.forEach(function(b){b.addEventListener('click',function(){
+    var f=b.getAttribute('data-f');
+    btns.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
+    items.forEach(function(i){i.hidden=!(f==='all'||i.getAttribute('data-c')===f)});
+  })});
+  var els=document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
+  els.forEach(function(e){io.observe(e)});
+})();
+</script>
+</body>
+</html>
